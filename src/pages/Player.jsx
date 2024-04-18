@@ -1,6 +1,7 @@
 import data from "../data";
 import { Howl } from "howler";
 import { useState } from "react";
+import { PlayArrow, SkipNext, SkipPrevious } from "@material-ui/icons";
 
 export default function Player() {
   const [currentTrack, setCurrentTrack] = useState("");
@@ -46,23 +47,24 @@ function TrackControls({
   return (
     <div className="controls">
       <div className="buttons">
-        <button
+        <SkipPrevious
+          className="button"
           onClick={() => {
             currentSound.stop();
             currentSound.play();
           }}
-        >
-          Back
-        </button>
-        <button
+        />
+        <PlayArrow
+          className="button"
           onClick={() => {
             if (currentSound.playing()) currentSound.pause();
             else currentSound.play();
+            console.log(currentSound.playing());
           }}
-        >
-          Play/Pause
-        </button>
-        <button
+        />
+
+        <SkipNext
+          className="button"
           onClick={() => {
             if (currentSound != null) currentSound.pause();
             tracksArr.forEach((track, i) => {
@@ -84,11 +86,9 @@ function TrackControls({
               }
             });
           }}
-        >
-          Next
-        </button>
+        />
       </div>
-      <p>{currentTrack}</p>
+      <p className="trackTitle">{currentTrack}</p>
     </div>
   );
 }

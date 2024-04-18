@@ -36,6 +36,7 @@ body {
   padding: 30px;
   background-color: #131313;
   border-radius: 10px;
+  height: 400px;
 }
 
 .trackImage {
@@ -79,10 +80,19 @@ body {
 .buttons {
 }
 
-button {
-  color: black;
+.button {
+  transform: scale(2);
+  margin: 0 10px;
+}
+
+.button:hover {
+  cursor: pointer;
 }
 
 .selected {
   background-color: #222222;
+}
+
+.trackTitle {
+  margin-top: 20px;
 }
